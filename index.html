@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.scss">
+    <title>Test WebSocket</title>
+    <style>
+
+        button.my_btn{
+        background:#eee;
+        color:#088;
+        text-decoration:none;
+        display:block;
+        width:90px;
+        text-align:center;
+        margin:20px auto;
+        padding:10px 10px;
+        transition:all 0.3s;
+        }
+        button.my_btn:hover{
+        box-shadow:0px -5px 0 #088 inset;
+        }
+
+        body{
+          /*настраиваем шрифт*/
+          font-family: Arial, Helvetica, sans-serif;
+        }
+    
+        /*общие настройки сетки*/
+        .grid {
+          /*рисуем зелёные рамки*/
+          border: 5px solid #d1e231;
+          /*подключаем сетку*/
+          display: grid;
+          /*формируем по 4 одинаковых строки и столбца*/
+          grid-template-columns: repeat(42, 32px);
+          grid-template-rows: repeat(24, 32px);
+        } 
+    
+        /*внешний вид ячеек*/
+        .grid > * {
+          /*фоновый цвет*/
+          background-color: rgb(127, 127, 127);
+          /*скругление углов*/
+          border-radius: 5px;
+          /*расстояние от одной границы ячейки до другой*/
+          margin: 1px;
+        }
+    
+    </style>
+</head>
+<body>
+    <ul>
+        <input type="url" id="url" required minlength="5" size="10">
+        <button class="my_btn" onclick="connect()">Connect</button>
+        <button class="my_btn" onclick="move(0)">Up</button>
+        <button class="my_btn" onclick="move(1)">Down</button>
+        <button class="my_btn" onclick="move(2)">Left</button>
+        <button class="my_btn" onclick="move(3)">Right</button>
+        <button class="my_btn" type="button" onclick="generateGrid()">Generate Grid</button>
+    </ul>
+
+
+    <div class="grid" id="game_grid">
+    </div>
+
+    <script src="script.js" ></script>
+</body>
+</html>
